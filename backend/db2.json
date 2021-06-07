@@ -1,0 +1,170 @@
+{
+  "unops": [
+    {
+      "id": 10001,
+      "nome": "Minuano",
+      "cnpj": "22150096000107",
+      "situação": "Ativa"
+    },
+    {
+      "id": 10002,
+      "nome": "Exatron",
+      "cnpj": "22150096000107",
+      "situação": "Ativa"
+    },
+    {
+      "id": 10004,
+      "nome": "Frigorifico Silva Ltda",
+      "cnpj": "47337485000177",
+      "situação": "Ativa"
+    }
+  ],
+
+
+
+
+    "lista-turnos": [
+      {
+        "id": 1,
+        "nome": "Manhã-Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 2,
+        "nome": "Tarde Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 3,
+        "nome": "Noite Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 1,
+        "nome": "Manhã-Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 2,
+        "nome": "Tarde Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 3,
+        "nome": "Noite Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 1,
+        "nome": "Manhã Frigoridico",
+        "unopId": 10004
+      },
+      {
+        "id": 2,
+        "nome": "Tarde Frigoridico",
+        "unopId": 10004
+      },
+      {
+        "id": 3,
+        "nome": "Noite Frigoridico",
+        "unopId": 10004
+      }
+    ]},
+    {
+    "lista-restaurantes": [
+      {
+        "id": 1,
+        "nome": "Restaurante 1 Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 2,
+        "nome": "Restaurante 2",
+        "unopId": 10001
+      },
+      {
+        "id": 3,
+        "nome": "Restaurante 3",
+        "unopId": 10001
+      },
+      {
+        "id": 1,
+        "nome": "Restaurante 1 Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 2,
+        "nome": "Restaurante 2 Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 3,
+        "nome": "Restaurante 3 Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 1,
+        "nome": "Restaurante 1 Frigoridico",
+        "unopId": 10004
+      },
+      {
+        "id": 2,
+        "nome": "Restaurante 2 Frigoridico",
+        "unopId": 10004
+      },
+      {
+        "id": 3,
+        "nome": "Restaurante 3 Frigoridico",
+        "unopId": 10004
+      }
+    ]},
+    {
+    "lista-feriados": [
+      {
+        "id": 1,
+        "nome": "13 de Agosto de 2019 Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 2,
+        "nome": "15 de Novembro de 2019 Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 3,
+        "nome": "24 de Dezembro de 2019 Minuano",
+        "unopId": 10001
+      },
+      {
+        "id": 1,
+        "nome": "13 de Agosto de 2019 Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 2,
+        "nome": "15 de Novembro de 2019 Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 3,
+        "nome": "24 de Dezembro de 2019 Exatron",
+        "unopId": 10002
+      },
+      {
+        "id": 1,
+        "nome": "13 de Agosto de 2019 Frigoridico",
+        "unopId": 10004
+      },
+      {
+        "id": 2,
+        "nome": "15 de Novembro de 2019 Frigoridico",
+        "unopId": 10004
+      },
+      {
+        "id": 3,
+        "nome": "24 de Dezembro de 2019 Frigoridico",
+        "unopId": 10004
+      }
+    ]}
+  ]
+}

@@ -1,0 +1,205 @@
+{
+    "unops": [
+
+        {
+            "id": 10001,
+            "nome": "Minuano",
+            "cnpj": "36424694000131",
+            "situação": "Ativa",
+            "lista-turnos": [
+                {
+                 "id": 1,
+                 "nome":"Manhã"
+                },
+                {
+                 "id": 2,
+                 "nome":"Tarde"
+                },
+                {
+                "id": 2,
+                "nome":"Noite"
+                }
+            ]
+            ,
+            "lista-restaurantes": [
+                   {
+                    "id": 1,
+                    "nome":"Restaurante 1"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"Restaurante 2"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"Restaurante 3"
+                   }
+            ],
+            "lista-feriados": [
+                   {
+                    "id": 1,
+                    "nome":"13 de Agosto de 2019"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"15 de Novembro de 2019"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"24 de Dezembro de 2019"
+                   }
+            ]
+        },
+        {
+            "id": 10002,
+            "nome": "Exatron",
+            "cnpj": "22150096000107",
+            "situação": "Ativa",
+            "lista-turnos": [
+                {
+                 "id": 1,
+                 "nome":"Manhã"
+                },
+                {
+                 "id": 2,
+                 "nome":"Tarde"
+                },
+                {
+                "id": 2,
+                "nome":"Noite"
+                }
+            ],
+            "lista-restaurantes": [
+                   {
+                    "id": 1,
+                    "nome":"Restaurante 1"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"Restaurante 2"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"Restaurante 3"
+                   }
+            ],
+            "lista-feriados": [
+                   {
+                    "id": 1,
+                    "nome":"13 de Agosto de 2019"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"15 de Novembro de 2019"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"24 de Dezembro de 2019"
+                   }
+            ]
+        },
+        {
+            "id": 10003,
+            "nome": "Planalto",
+            "cnpj": "54284490000124",
+            "situação": "Ativa",
+            "lista-turnos": [
+                {
+                 "id": 1,
+                 "nome":"Manhã"
+                },
+                {
+                 "id": 2,
+                 "nome":"Tarde"
+                },
+                {
+                "id": 2,
+                "nome":"Noite"
+                }
+            ],
+            "lista-restaurantes": [
+                   {
+                    "id": 1,
+                    "nome":"Restaurante 1"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"Restaurante 2"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"Restaurante 3"
+                   }
+            ],
+            "lista-feriados": [
+                   {
+                    "id": 1,
+                    "nome":"13 de Agosto de 2019"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"15 de Novembro de 2019"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"24 de Dezembro de 2019"
+                   }
+            ]
+        },
+        {
+            "id": 10004,
+            "nome": "Frigorifico Silva Ltda",
+            "cnpj": "47337485000177",
+            "situação": "Ativa",
+            "lista-turnos": [
+                {
+                 "id": 1,
+                 "nome":"Manhã"
+                },
+                {
+                 "id": 2,
+                 "nome":"Tarde"
+                },
+                {
+                "id": 2,
+                "nome":"Noite"
+                }
+            ],
+            "lista-restaurantes": [
+                   {
+                    "id": 1,
+                    "nome":"Restaurante 1"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"Restaurante 2"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"Restaurante 3"
+                   }
+            ],
+            "lista-feriados": [
+                   {
+                    "id": 1,
+                    "nome":"13 de Agosto de 2019"
+                   },
+                   {
+                    "id": 2,
+                    "nome":"15 de Novembro de 2019"
+                   },
+                   {
+                   "id": 2,
+                   "nome":"24 de Dezembro de 2019"
+                   }
+            ]
+        }
+
+
+
+
+
+
+    ]
+
+}

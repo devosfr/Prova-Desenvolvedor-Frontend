@@ -1,0 +1,123 @@
+{
+  "unops": [
+    {
+      "id": 10001,
+      "nome": "Minuano",
+      "cnpj": "22150096000107",
+      "situação": "Ativa"
+    },
+    {
+      "id": 10002,
+      "nome": "Exatron",
+      "cnpj": "22150096000107",
+      "situação": "Ativa"
+    },
+    {
+      "id": 10004,
+      "nome": "Frigorifico Silva Ltda",
+      "cnpj": "47337485000177",
+      "situação": "Ativa"
+    }
+  ],
+  "lista-turnos": [
+    {
+      "id": 1,
+      "nome": "Turno 1 Minuano",
+      "unopId": 10001
+    },
+    {
+      "id": 2,
+      "nome": "Turno 1 Minuano2",
+      "unopId": 10001
+    },
+    {
+      "id": 1,
+      "nome": "Turno 1 Exatron",
+      "unopId": 10002
+    },
+    {
+      "id": 2,
+      "nome": "Turno 1 Exatron",
+      "unopId": 10002
+    },
+    {
+      "id": 4,
+      "nome": "Rest ",
+      "cnpj": "76.873.541/5741-54",
+      "status": "Inativa"
+    },
+    {
+      "id": 5,
+      "nome": "Teste",
+      "unopId": 10002,
+      "cnpj": "78.936.541/3687-41",
+      "status": "Ativa"
+    },
+    {
+      "id": 6,
+      "nome": "uyuisyed",
+      "unopId": 10004,
+      "cnpj": "76.873.541/5741-56",
+      "status": "Ativa"
+    },
+    {
+      "id": 7,
+      "nome": "Turno x",
+      "unopId": 10004,
+      "cnpj": "78.698.654/1462-66",
+      "status": "Inativa"
+    },
+    {
+      "id": 8,
+      "nome": "Manhã",
+      "unopId": 10004,
+      "cnpj": "89.654.136/5466-56",
+      "status": "Ativa"
+    }
+  ],
+  "lista-restaurantes": [
+    {
+      "id": 1,
+      "nome": "Restaurante 1 Frigoridico",
+      "unopId": 10004
+    },
+    {
+      "id": 3,
+      "nome": "Rest ",
+      "unopId": 10002,
+      "cnpj": "76.873.541/5741-54",
+      "status": "Ativa"
+    },
+    {
+      "id": 4,
+      "nome": "Rest ",
+      "unopId": 10002,
+      "cnpj": "76.873.541/5741-54",
+      "status": "Ativa"
+    }
+  ],
+  "lista-feriados": [
+    {
+      "id": 1,
+      "nome": "13 de Agosto de 2019 Minuano",
+      "unopId": 10001
+    },
+    {
+      "id": 1,
+      "nome": "13 de Agosto de 2019 Exatron",
+      "unopId": 10002
+    },
+    {
+      "id": 1,
+      "nome": "13 de Agosto de 2019 Frigoridico",
+      "unopId": 10004
+    },
+    {
+      "id": 2,
+      "nome": "Teste",
+      "unopId": 10002,
+      "cnpj": "78.936.541/3687-41",
+      "status": "Ativa"
+    }
+  ]
+}
