@@ -8,9 +8,15 @@ import { Switch, Route, Link } from 'react-router-dom';
 import InserirouEditar from "./InserirouEditar";
 import PostData from "./data/db.json"
 
-
-
 const baseURL = "http://localhost:3002/unops";
+const baseURLTurno = "http://localhost:3002/lista-turnos";
+const baseURLRestaurantes = "http://localhost:3002/lista-restaurantes";
+const baseURLFeriados = "http://localhost:3002/lista-feriados";
+var baseUrlGenerica = null;
+var objLocal = null;
+var objtoRemove = null;
+var listaUpdate = null;
+var getTexto = null;
 
 
 // reseta o formulário
@@ -62,6 +68,14 @@ class Home extends React.Component {
 
   }
 
+  getObjectByClick(objLocal, url){
+
+    objtoRemove = objLocal;
+    baseUrlGenerica = url;
+    listaUpdate = null;
+   
+    
+  }
 
 getElSearch(){
 
@@ -199,8 +213,7 @@ getElSearchSelect(){
 
   remove(unop){
     axios.delete(`${baseURL}/${unop.id}`).then(resp => {
-      const list = this.getUpdateList(unop, false);
-      this.setState({ list });
+      document.location.reload();
     });
   }
 
@@ -220,6 +233,13 @@ getElSearchSelect(){
       </thead>
       <tbody id="tbody">
        {this.renderRows()}
+       <tr  className="trTable">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="/inserir" className="btn btn-dark" 
+        >Incluir</a></td>
+      </tr>
       </tbody>
     </table>
 
@@ -239,13 +259,23 @@ getElSearchSelect(){
         initialState.list = [];
 
         return initialState.list.map(unop => {
+          objtoRemove = unop;
           return (
             <tr key={unop.id} id={unop.id} className="trTable">
               <th scope="col">{unop.nome}</th>
               <td>{unop.id}</td>
               <td>{unop.situação}</td>
-              <td>              
-                <span id="visualizar"><Link onClick={()=> this.load(unop) }  className="talbe-links-home"><FaEdit /></Link></span>     
+              <td>
+              <span class="">
+                {/* mark */}
+                <Link className="talbe-links" data-toggle="modal" data-target="#exampleModal"
+                 onClick={()=>this.getObjectByClick(unop, baseURLTurno)}><FaTrashAlt />
+                 </Link> 
+                </span>              
+                <span class="">
+                  <Link onClick={()=> this.load(unop) }  className="talbe-links-home visualizar"><FaEdit />
+                </Link>
+                </span>     
               </td>
             </tr>
           );
@@ -262,10 +292,18 @@ getElSearchSelect(){
               <th scope="col">{unop.nome}</th>
               <td>{unop.id}</td>
               <td>{unop.situação}</td>
-              <td>              
-                <span id="visualizar"><Link onClick={()=> this.load(unop) }  className="talbe-links-home"><FaEdit /></Link></span>     
+              <td>    
+                <span class=""> 
+                 <Link className="talbe-links visualizar" data-toggle="modal" data-target="#exampleModal"
+                 onClick={()=>this.getObjectByClick(unop, baseURLTurno)}><FaTrashAlt />
+                  </Link>   
+                 </span>        
+                <span class=""><Link onClick={()=> this.load(unop) }  className="talbe-links-home visualizar">
+                  <FaEdit /></Link>
+                </span>     
               </td>
-            </tr>
+            </tr>            
+          
           );
         });
       }
@@ -279,6 +317,25 @@ getElSearchSelect(){
       <div className="App">
   
 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Tem certeza que quer excluir?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onClick={()=>this.remove(objtoRemove, listaUpdate, baseUrlGenerica)}>Confirmar a Exclusão</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         
 

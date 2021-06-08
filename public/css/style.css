@@ -165,8 +165,13 @@ body {
 /* 
 .trTable td:nth-child(4) {
    
-    /* mix-blend-mode:overlay; */
+    mix-blend-mode:overlay;
 } */
+
+.visualizar{
+    width: 30px;
+}
+
 .trTable td span#visualizar{
     mix-blend-mode:normal;   
 }

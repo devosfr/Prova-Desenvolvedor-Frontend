@@ -12,6 +12,7 @@ const baseURL = "http://localhost:3002/unops";
 const baseURLTurno = "http://localhost:3002/lista-turnos";
 const baseURLRestaurantes = "http://localhost:3002/lista-restaurantes";
 const baseURLFeriados = "http://localhost:3002/lista-feriados";
+var idMainObj = urlParams.get("value")
 var baseUrlGenerica = null;
 var objLocal = null;
 var objtoRemove = null;
@@ -170,7 +171,7 @@ class InserirouEditar extends React.Component {
   clear(){
     this.setState({unop:initialState.unop});
   }
-// mark
+
   save(){
 
   var obj ={
@@ -179,20 +180,9 @@ class InserirouEditar extends React.Component {
     "unopId": ""
   }
   var nome = document.getElementById('nome');
-  var cnpj = document.getElementById('cnpj');
-  var gridRadios1 = document.getElementById('gridRadios1');
-  var gridRadios2 = document.getElementById('gridRadios2');
-  var status = null;
-  if(gridRadios1.checked == true){
-     status = gridRadios1.value;
-  }else if(gridRadios2.checked == true){
-    status = gridRadios2.value;
- }
-
+ // mark
   obj.nome = nome.value;
-  obj.cnpj = cnpj.value;
-  obj.status = status;
-  obj.unopId = objLocal[0].id
+  obj.unopId = idMainObj;
 
 
     const unop = obj;
@@ -325,7 +315,7 @@ if(initialState.list.length > 0){
 
   if(initialState.listCatTurno){
 
-    if(objLocal){
+    if(objLocal.length > 0){
       
     var list = initialState.listCatTurno.filter(o => o.unopId == objLocal[0].id);
 
@@ -335,7 +325,10 @@ if(initialState.list.length > 0){
           return(
             <tr key={obj.id}>
               <th scope="row">{obj.nome}</th>
-              <td><Link className="talbe-links" data-toggle="modal" data-target="#exampleModal" onClick={()=>this.getObjectByClick(obj, list, baseURLTurno)}><FaTrashAlt /></Link>     
+              <td>
+                <Link className="talbe-links" data-toggle="modal" data-target="#exampleModal"
+                 onClick={()=>this.getObjectByClick(obj, list, baseURLTurno)}><FaTrashAlt />
+                 </Link>     
               </td>
             </tr>
         
@@ -377,7 +370,8 @@ renderRestaurantes(){
                       <tr>
                         <td></td>
                           <td><button type="button" className="btn btn-dark" 
-                            data-toggle="modal" data-target="#modalSubscriptionForm" onClick={()=>this.getByClick(baseURLRestaurantes)}>Incluir Restaurante</button></td>
+                            data-toggle="modal" data-target="#modalSubscriptionForm"
+                             onClick={()=>this.getByClick(baseURLRestaurantes)}>Incluir Restaurante</button></td>
                       </tr>  
                       </tbody>
                  </table>                         
@@ -402,7 +396,7 @@ if(initialState.list.length > 0){
 objLocal=initialState.list.filter(u=>u.id == urlParams.get("value"));
 
 if(initialState.listCatRestaurantes){
-  var list = initialState.listCatRestaurantes.filter(o => o.unopId == objLocal[0].id);
+  var list = initialState.listCatRestaurantes.filter(o => o.unopId == urlParams.get("value"));
 
 listaUpdate = initialState.listCatRestaurantes;
 return list.map(obj => {
@@ -519,27 +513,6 @@ renderRowsCalendUnid(){
                 <label data-error="wrong" data-success="right" for="form3">Nome</label>
                   <input type="text" className="form-control form-control-lg" id="nome" placeholder="Nome" name="nome" 
                     required />
-                  <label data-error="wrong" data-success="right" for="form3">CNPJ</label>
-                  <input type="text" className="form-control form-control-lg"  placeholder="Digite o CNPJ"
-                      id="cnpj" name="cnpj" required onKeyUp={()=>this.mascara_cnpj()} maxLength="18"/>       
-                  <div class="md-form mb-4">
-                    <div className="form-check">
-                      <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                      value="Ativa" checked/>
-                      <label className="form-check-label" for="gridRadios1">
-                        Ativa
-                      </label>
-                    </div>
-                    <div className="form-check">
-                      <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" 
-                      value="Inativa"/>
-                      <label className="form-check-label" for="gridRadios2">
-                        Inativa
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div id="erroMsn" class="alert alert-danger" hidden>               
                 </div>
               </div>
               <div class="modal-footer d-flex justify-content-center">

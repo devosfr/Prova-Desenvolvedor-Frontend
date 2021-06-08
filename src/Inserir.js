@@ -45,14 +45,37 @@ class Inserir extends React.Component {
   }
 
   save(){
-    const unop = this.state.unop;
-    const method = unop.id?'put':'post';
-    const url = unop.id?`${baseURL}/${unop.id}`:baseURL;
-    axios[method](url, unop).then(resp => {
-      const list = this.getUpdateList(resp.data);
-      this.setState({unop:initialState.unop, list});
-    })
-  }
+
+    var obj ={
+      "nome": "",
+      "cnpj": "",
+      "situação": ""
+    }
+    var nome = document.getElementById('nome');
+    var cnpj = document.getElementById('cnpj');
+    var gridRadios1 = document.getElementById('gridRadios1');
+    var gridRadios2 = document.getElementById('gridRadios2');
+    var status = null;
+    if(gridRadios1.checked == true){
+       status = gridRadios1.value;
+    }else if(gridRadios2.checked == true){
+      status = gridRadios2.value;
+   }
+  
+    obj.nome = nome.value;
+    obj.cnpj = cnpj.value;
+    obj.situação = status;
+  
+  
+  
+      const unop = obj;
+      const method = obj.id?'put':'post';
+      const url = obj.id?`${baseURL}/${obj.id}`:baseURL;
+      axios[method](url, obj).then(resp => {
+        document.location.href="http://localhost:3000/"
+      })
+    }
+  
 
   getUpdateList(unop, add = true){
     const list = this.state.lista.filter(u=>u.id != unop.id);
@@ -67,31 +90,18 @@ class Inserir extends React.Component {
     this.setState({unop});
   }
 
-
-  mascara_cnpj(cnpj){
-  // MARK
+  mascara_cnpj(cnpj=null){
+  
     var cnpj = document.getElementById('cnpj');
-    console.log(this.state.initialState.unop.cnpj.value);
-    // if(this.state.initialState.unop.cnpj.length == 2 || cnpj.value.length == 6){
-    //   cnpj.value = cnpj.value + ".";
-    // }else if(cnpj.value.length == 10){
-    //   cnpj.value = cnpj.value + "/";
-    // }else if(cnpj.value.length == 15){
-    //   cnpj.value = cnpj.value + "-";
-    // };
 
-
-    if(cnpj.value.length == 2 || cnpj.value.length == 6){
-      cnpj.value = cnpj.value + ".";
-    }else if(cnpj.value.length == 10){
-      cnpj.value = cnpj.value + "/";
-    }else if(cnpj.value.length == 15){
-      cnpj.value = cnpj.value + "-";
-    };
-
+    cnpj.value = cnpj.value.replace(/\D/g, "")
+    .replace(/(\d{2})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1/$2")
+    .replace(/(\d{4})(\d)/, "$1-$2"); 
     
   }
-
+ 
 
 
   render(){
@@ -117,15 +127,15 @@ class Inserir extends React.Component {
                       <div className="form-group row">
                         <label for="inputPassword3" className="col-sm-2 col-form-label">Nome</label>
                         <div className="col-sm-10">
-                          <input type="text" className="form-control form-control-lg" id="" placeholder="Nome" name="nome" 
-                          value={this.state.initialState.nome} onChange={e => {this.updateField(e)}} disabled="true" required/>
+                        <input type="text" className="form-control form-control-lg" id="nome" placeholder="Nome" name="nome" 
+                    required />
                         </div>
                       </div>
                       <div className="form-group row">
                         <label for="inputPassword3" className="col-sm-2 col-form-label">CNPJ</label>
                         <div className="col-sm-10">
-                          <input type="number" className="form-control form-control-lg" placeholder="Digite o CNPJ" value="" id="cnpj" name="cnpj"
-                          required/>
+                        <input type="text" className="form-control form-control-lg"  placeholder="Digite o CNPJ"
+                      id="cnpj" name="cnpj" required onKeyUp={()=>this.mascara_cnpj()} maxLength="18"/> 
                         </div>
                       </div>
                       <fieldset className="form-group">
@@ -133,13 +143,13 @@ class Inserir extends React.Component {
                           <legend className="col-form-label col-sm-2 pt-0">Situação</legend>
                           <div className="col-sm-10">
                             <div className="form-check">
-                              <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked/>
+                              <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Ativa" checked/>
                               <label className="form-check-label" for="gridRadios1">
                                 Ativa
                               </label>
                             </div>
                             <div className="form-check">
-                              <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
+                              <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Inativa"/>
                               <label className="form-check-label" for="gridRadios2">
                                 Inativa
                               </label>
@@ -148,37 +158,9 @@ class Inserir extends React.Component {
                         </div>
                       </fieldset>
                       <div className="form-group row">
-                        <label for="inputPassword3" className="col-sm-2 col-form-label">Lista de Turnos</label>
                         <div className="col-sm-10">
-                          <select className="form-control form-control-lg" name="lista-turnos" 
-                          value={this.state.unop} onChange={e => {this.updateField(e)}}>
-                            <option>Lista de Turnos</option>
-                        </select>
-                        </div>
-                      </div>
-                      <div className="form-group row">
-                        <label for="inputPassword3" className="col-sm-2 col-form-label">Lista de Restaurantes</label>
-                        <div className="col-sm-10">
-                          <select className="form-control form-control-lg" name="lista-restaurantes" 
-                          value={this.state.unop} onChange={e => {this.updateField(e)}}>
-                            <option>Lista de Restaurantes</option>
-                        </select>
-                        </div>
-                      </div>
-                      <div className="form-group row">
-                        <label for="inputPassword3" className="col-sm-2 col-form-label">Lista de Feriados</label>
-                        <div className="col-sm-10">
-                          <select className="form-control form-control-lg" name="lista-feriados" 
-                          value={this.state.unop} onChange={e => {this.updateField(e)}}>
-                            <option>Lista de Feriados</option>
-                        </select>
-                        </div>
-                      </div>
-
-
-                      <div className="form-group row">
-                        <div className="col-sm-10">
-                          <button type="submit" className="btn btn-primary">Sign in</button>
+                          {/* mark */}
+                          <button type="submit" className="btn btn-primary" onClick={()=> this.save()}>Incluir</button>
                         </div>
                       </div>
                     </form>
