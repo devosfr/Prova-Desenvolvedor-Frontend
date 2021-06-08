@@ -191,34 +191,6 @@ img#logo-banner {
 }
 
 
-/*#header-out{
-	display: block;
-	padding-top: 200px;
-	width: 100%;
-	margin: auto;
-	margin-bottom: 50px;
-	height: 700px;
-	background-color: #000;
-	background-image: url("../template/images/banners-slide.jpg");
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	-webkit-animation: headeranimacao 15s steps(8) infinite;
-	animation: headeranimacao 15s steps(8) infinite; 
-
-}
-
-@-webkit-keyframes headeranimacao{
-	0% { background-position: 0px }
-	10% { background-position: -500px }
-}
-
-
-@keyframes headeranimacao{
-	0% { background-position: 0px }
-	10% { background-position: -500px }
-}*/
-
 .btn-busca {
     color: #fff !important;
     border: #fff;

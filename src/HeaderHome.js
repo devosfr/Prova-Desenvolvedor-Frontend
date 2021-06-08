@@ -5,7 +5,6 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import InserirouEditar from "./InserirouEditar";
 import Inserir from "./Inserir";
-import Lista from "./Lista";
 import './util';
 import { event } from 'jquery';
 import { AiOutlineHome } from "react-icons/ai";

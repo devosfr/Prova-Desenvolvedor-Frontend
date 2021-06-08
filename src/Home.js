@@ -213,8 +213,12 @@ getElSearchSelect(){
 
   remove(unop){
     axios.delete(`${baseURL}/${unop.id}`).then(resp => {
-      document.location.reload();
+      console.log(resp);
+      const list = this.getUpdateList(unop, false); 
     });
+
+    document.location.reload();
+
   }
 
   // tabela

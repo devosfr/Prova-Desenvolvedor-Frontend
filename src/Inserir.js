@@ -61,6 +61,17 @@ class Inserir extends React.Component {
     }else if(gridRadios2.checked == true){
       status = gridRadios2.value;
    }
+
+// mark
+   if(nome.value == null || nome.value == ""){
+     document.getElementById('ms_nome').innerHTML = "Preencha o campo nome!";
+     return
+   }
+
+   if(cnpj.value == null || cnpj.value == ""){
+    document.getElementById('msn_cnpj').innerHTML = "Preencha o campo cnpj!";
+    return
+  }
   
     obj.nome = nome.value;
     obj.cnpj = cnpj.value;
@@ -102,6 +113,10 @@ class Inserir extends React.Component {
     
   }
  
+  hideMsn(){
+    document.getElementById('ms_nome').innerHTML = ""; 
+    document.getElementById('msn_cnpj').innerHTML = "";
+  }
 
 
   render(){
@@ -120,22 +135,25 @@ class Inserir extends React.Component {
   
           <section id="intro" className="main">
   
-                    <h2>Configuração da UNOP</h2><br/><br/>
-           
+                    <h2>Configuração da UNOP</h2><br/><br/>         
   
                     <form>                      
                       <div className="form-group row">
                         <label for="inputPassword3" className="col-sm-2 col-form-label">Nome</label>
                         <div className="col-sm-10">
                         <input type="text" className="form-control form-control-lg" id="nome" placeholder="Nome" name="nome" 
-                    required />
+                    required  onKeyDown={()=>this.hideMsn()}/>
+                    <small className="vermelho" id="ms_nome"></small>
+             
                         </div>
                       </div>
                       <div className="form-group row">
                         <label for="inputPassword3" className="col-sm-2 col-form-label">CNPJ</label>
                         <div className="col-sm-10">
                         <input type="text" className="form-control form-control-lg"  placeholder="Digite o CNPJ"
-                      id="cnpj" name="cnpj" required onKeyUp={()=>this.mascara_cnpj()} maxLength="18"/> 
+                      id="cnpj" name="cnpj" required onKeyUp={()=>this.mascara_cnpj()} maxLength="18" onKeyDown={()=>this.hideMsn()}/> 
+                      
+                    <small className="vermelho" id="msn_cnpj"></small>
                         </div>
                       </div>
                       <fieldset className="form-group">
@@ -159,7 +177,6 @@ class Inserir extends React.Component {
                       </fieldset>
                       <div className="form-group row">
                         <div className="col-sm-10">
-                          {/* mark */}
                           <button type="submit" className="btn btn-primary" onClick={()=> this.save()}>Incluir</button>
                         </div>
                       </div>

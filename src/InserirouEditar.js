@@ -174,16 +174,21 @@ class InserirouEditar extends React.Component {
 
   save(){
 
-  var obj ={
-    "id": "",
-    "nome": "",
-    "unopId": ""
-  }
-  var nome = document.getElementById('nome');
- // mark
-  obj.nome = nome.value;
-  obj.unopId = idMainObj;
+    var obj ={
+      "id": "",
+      "nome": "",
+      "unopId": ""
+    }
+    var nome = document.getElementById('nome');
+    obj.nome = nome.value;
+    obj.unopId = idMainObj;
 
+    if(nome.value == null || nome.value == ""){
+      document.getElementById('ms_nome').innerHTML = "Preencha o campo nome!";
+      return
+    }
+
+// mark
 
     const unop = obj;
     const method = obj.id?'put':'post';
@@ -263,6 +268,10 @@ getObjectByClick(objLocal, lista, url){
   listaUpdate = null;
   listaUpdate = lista
   
+}
+
+hideMsn(){
+  document.getElementById('ms_nome').innerHTML = ""; 
 }
 
   renderTurnos(){
@@ -464,9 +473,8 @@ renderRowsCalendUnid(){
   if(initialState.list.length > 0 ){
   
   objLocal=initialState.list.filter(u=>u.id == urlParams.get("value"));
-
   if(initialState.listCatFeriados){
-    var list = initialState.listCatFeriados.filter(o => o.unopId == objLocal[0].id);
+    var list = initialState.listCatFeriados.filter(o => o.unopId == idMainObj);
   
     listaUpdate = initialState.listCatFeriados;
     return list.map(obj => {
@@ -512,7 +520,8 @@ renderRowsCalendUnid(){
                 <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="form3">Nome</label>
                   <input type="text" className="form-control form-control-lg" id="nome" placeholder="Nome" name="nome" 
-                    required />
+                    required onKeyDown={()=>this.hideMsn()} />
+                    <small id="ms_nome" className="vermelho"></small>
                 </div>
               </div>
               <div class="modal-footer d-flex justify-content-center">
