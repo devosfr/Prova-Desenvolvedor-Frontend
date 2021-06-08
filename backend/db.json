@@ -49,16 +49,16 @@
       "id": 8
     },
     {
-      "nome": "Teste 4",
-      "cnpj": "55.681.871/3688-98",
-      "situação": "Ativa",
-      "id": 9
-    },
-    {
       "nome": "Grupo Sinos",
       "cnpj": "56.878.354/1354-13",
       "situação": "Ativa",
       "id": 10003
+    },
+    {
+      "nome": "Unidos SA",
+      "cnpj": "57.638.741/3817-41",
+      "situação": "Ativa",
+      "id": 10004
     }
   ],
   "lista-turnos": [
@@ -117,6 +117,11 @@
       "id": 14,
       "nome": "Tarde Planalto",
       "unopId": "10002"
+    },
+    {
+      "id": 15,
+      "nome": "Manhã Sinos",
+      "unopId": "10003"
     }
   ],
   "lista-restaurantes": [
