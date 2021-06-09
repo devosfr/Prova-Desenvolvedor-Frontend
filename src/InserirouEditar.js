@@ -5,7 +5,8 @@ import { BiAddToQueue } from "react-icons/bi";
 import axios from "axios";
 import { Switch, Route, Link } from 'react-router-dom';
 import Home from "./Home";
-import { timers } from 'jquery';
+import { event, timers } from 'jquery';
+import { useHistory } from "react-router-dom"
 
 const urlParams = new URLSearchParams(window.location.search);
 const baseURL = "http://localhost:3002/unops";
@@ -18,6 +19,7 @@ var objLocal = null;
 var objtoRemove = null;
 var listaUpdate = null;
 var getTexto = null;
+
 
 
 // reseta o formulário
@@ -118,6 +120,7 @@ class InserirouEditar extends React.Component {
 
 
   componentWillMount(){
+
     axios.get(baseURL).then((resp) => {
       this.setState({ list: resp.data });
       this.getObjectById()
@@ -174,6 +177,7 @@ class InserirouEditar extends React.Component {
 
   save(){
 
+    
     var obj ={
       "id": "",
       "nome": "",
@@ -194,8 +198,11 @@ class InserirouEditar extends React.Component {
     const method = obj.id?'put':'post';
     const url = obj.id?`${baseUrlGenerica}/${obj.id}`:baseUrlGenerica;
     axios[method](url, obj).then(resp => {
-      document.location.reload();
-    })
+      // var list = this.getUpdateList(obj, false);
+      // this.setState({ list })
+      document.location.reload(false)
+    });
+
   }
 
   getUpdateList(unop, add = true){
@@ -257,8 +264,8 @@ class InserirouEditar extends React.Component {
 
 remove(unop, lista, url){
   axios.delete(`${url}/${unop.id}`).then(resp => {
-    document.location.reload();
   });
+  document.location.reload();
 }
 
 getObjectByClick(objLocal, lista, url){
