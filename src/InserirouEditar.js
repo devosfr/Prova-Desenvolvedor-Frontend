@@ -198,8 +198,6 @@ class InserirouEditar extends React.Component {
     const method = obj.id?'put':'post';
     const url = obj.id?`${baseUrlGenerica}/${obj.id}`:baseUrlGenerica;
     axios[method](url, obj).then(resp => {
-      // var list = this.getUpdateList(obj, false);
-      // this.setState({ list })
       document.location.reload(false)
     });
 
