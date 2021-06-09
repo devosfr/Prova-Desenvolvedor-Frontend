@@ -94,20 +94,29 @@ getElSearch(){
 
 
     for(var j=0; j < td.length; j++){
+if(td[j].childNodes.length != 2){
 
-      if(td[j].childNodes[0].nodeValue != null){
-            var value = td[j].childNodes[0].nodeValue.toLowerCase();
-          
-            
-            if(value.indexOf(busca) >= 0 || value == busca && busca != ""){
-              achou = true;              
-            }
-            
-            
+  if(td[j].childNodes.length == 0){
+    return
+  }else{
+    if(td[j].childNodes[0].nodeValue[0].length > 0){
+      var value = td[j].childNodes[0].nodeValue.toLowerCase();
+    
+      
+      if(value.indexOf(busca) >= 0 || value == busca && busca != ""){
+        achou = true;              
+      }
+      
+      
+  
+    }
+  }
 
-          }
+  
+}
+
       if(achou){
-        console.log(tr);
+        console.log(tr.childNodes);
         
         tr.style.display="table-row";
       }else{
