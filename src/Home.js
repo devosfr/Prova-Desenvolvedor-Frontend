@@ -158,6 +158,10 @@ getElSearchSelect(){
 
     for(var j=0; j < td.length; j++){
 
+      
+      if(td[j].childNodes.length == 0){
+        return
+      }else{
       if(td[j].childNodes[0].nodeValue != null){
             var value = td[j].childNodes[0].nodeValue.toLowerCase();
             
@@ -167,6 +171,9 @@ getElSearchSelect(){
             
 
           }
+
+        }
+
       if(achou){
         console.log(tr);
         
@@ -282,7 +289,6 @@ getElSearchSelect(){
               <td>{unop.situação}</td>
               <td>
               <span class="">
-                {/* mark */}
                 <Link className="talbe-links" data-toggle="modal" data-target="#exampleModal"
                  onClick={()=>this.getObjectByClick(unop, baseURLTurno)}><FaTrashAlt />
                  </Link> 
