@@ -165,18 +165,16 @@ getElSearchSelect(){
       if(td[j].childNodes[0].nodeValue != null){
             var value = td[j].childNodes[0].nodeValue.toLowerCase();
             
-            if(selectBusca == value || selectBusca == "Situação"){
+            if(selectBusca == value || selectBusca == "situação"){
               achou = true; 
             }
-            
+           
 
           }
 
         }
 
-      if(achou){
-        console.log(tr);
-        
+      if(achou){        
         tr.style.display="table-row";
       }else{
         tr.style.display="none";
