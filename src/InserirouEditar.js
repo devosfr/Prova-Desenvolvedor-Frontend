@@ -198,9 +198,10 @@ class InserirouEditar extends React.Component {
     const method = obj.id?'put':'post';
     const url = obj.id?`${baseUrlGenerica}/${obj.id}`:baseUrlGenerica;
     axios[method](url, obj).then(resp => {
-      document.location.reload(false)
+      
     });
 
+    document.location.reload(false)
   }
 
   getUpdateList(unop, add = true){
@@ -530,7 +531,7 @@ renderRowsCalendUnid(){
                 </div>
               </div>
               <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-success col-md-12" onClick={()=> this.save()}>Incluir<i class="fas fa-paper-plane-o ml-1"></i></button>
+              <button type="button" class="btn btn-success col-md-12"  onClick={()=> this.save()}>Incluir</button>
               </div>
               <div class="modal-footer d-flex justify-content-center">
               <button type="button" class="btn col-md-12" data-dismiss="modal">Cancelar</button>

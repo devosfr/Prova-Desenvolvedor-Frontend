@@ -151,13 +151,8 @@
       "unopId": "8"
     },
     {
-      "id": 29,
-      "nome": "Manhã 1",
-      "unopId": "8"
-    },
-    {
       "id": 30,
-      "nome": "Manhã Minuano",
+      "nome": "Tarde",
       "unopId": "8"
     },
     {
@@ -216,11 +211,6 @@
       "id": 14,
       "nome": "Teste 2",
       "unopId": "8"
-    },
-    {
-      "id": 15,
-      "nome": "Teste",
-      "unopId": "8"
     }
   ],
   "lista-feriados": [
@@ -257,6 +247,11 @@
     {
       "id": 7,
       "nome": "Teste",
+      "unopId": "8"
+    },
+    {
+      "id": 8,
+      "nome": "Teste de hoje",
       "unopId": "8"
     }
   ]
